@@ -37,5 +37,18 @@
 	<classpathentry kind="lib" path="addl_req/lib/xalan-2.7.2.jar"/>
 	<classpathentry kind="lib" path="addl_req/lib/xercesImpl-2.11.0.jar"/>
 	<classpathentry kind="lib" path="addl_req/lib/xml-apis-1.4.01.jar"/>
+	<classpathentry kind="lib" path="addl_req/poi_lib/poi-3.16.jar"/>
+	<classpathentry kind="lib" path="addl_req/poi_lib/poi-examples-3.16.jar"/>
+	<classpathentry kind="lib" path="addl_req/poi_lib/poi-excelant-3.16.jar"/>
+	<classpathentry kind="lib" path="addl_req/poi_lib/poi-ooxml-3.16.jar"/>
+	<classpathentry kind="lib" path="addl_req/poi_lib/poi-ooxml-schemas-3.16.jar"/>
+	<classpathentry kind="lib" path="addl_req/poi_lib/poi-scratchpad-3.16.jar"/>
+	<classpathentry kind="lib" path="addl_req/poi_lib/curvesapi-1.04.jar"/>
+	<classpathentry kind="lib" path="addl_req/poi_lib/xmlbeans-2.6.0.jar"/>
+	<classpathentry kind="lib" path="addl_req/poi_lib/commons-codec-1.10.jar"/>
+	<classpathentry kind="lib" path="addl_req/poi_lib/commons-collections4-4.1.jar"/>
+	<classpathentry kind="lib" path="addl_req/poi_lib/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="addl_req/poi_lib/junit-4.12.jar"/>
+	<classpathentry kind="lib" path="addl_req/poi_lib/log4j-1.2.17.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

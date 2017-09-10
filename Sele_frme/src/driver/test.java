@@ -1,29 +1,31 @@
 package driver;
 
-import java.awt.AWTException;
-import java.awt.Robot;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-
 import framewrk.frme_wrk;
 
 public class test{
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		Excelfile aa = new Excelfile();
+		
+		aa.openfile();
+		aa.selectsheet(0);
+		String[] values = aa.getrow();
+		System.out.println(values[0] + " " + values[1] + " " + values[2] +  " " + values[3]);
 		frme_wrk zzz = new frme_wrk("Amazon");
-		zzz.gotourl("http://www.amazon.in");
+
+		while (aa.hasnextrow()){
+			values = aa.getrow();
+			if (values[0] != "") 
+				System.out.println(values[0] + " " + values[1] + " " + values[2] +  " " + values[3]);
+				zzz.framewrk_driver(values);
+		}
+		aa.fileclose();
+		System.exit(0);
+/*		zzz.gotourl("http://www.amazon.in");
 		zzz.logger("first page", true);
         //zzz.sleep(10000);
-        /*List<WebElement> elements = driver.findElements(By.cssSelector("*"));
+        List<WebElement> elements = driver.findElements(By.cssSelector("*"));
         System.out.println("ghjhgkj "+elements.size());
         for(WebElement ele:elements)
         {
@@ -31,7 +33,7 @@ public class test{
                 System.out.println(ele.getAttribute("id"));// + " - " + ele.getText());              //for getting text of each element
 
         }
-        System.exit(0);*/
+        System.exit(0);
 		//zzz.mouseHover("//*[@id='nav-link-accountList']");
 		zzz.mouseHoveract("//*[@id='nav-tools']/a[1]");
 		zzz.logger("menu", true);
@@ -48,7 +50,8 @@ public class test{
 		//zzz.click("//*[@id='continue']");
 		
 		zzz.sleep(5000);
-		zzz.closebrowser();
+		zzz.closebrowser();*/
 	}
+
 
 }

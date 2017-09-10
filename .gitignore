@@ -12,6 +12,8 @@
 
 # Package Files #
 *.jar
+!addl_req/*.*
+!addl_req/poi_lib/*.*
 !client-combined-3.5.3-nodeps.jar
 !cglib-nodep-3.2.4.jar
 !commons-codec-1.10.jar

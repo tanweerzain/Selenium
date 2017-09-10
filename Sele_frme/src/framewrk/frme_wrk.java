@@ -7,14 +7,10 @@ import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.google.common.io.Files;
 
@@ -72,7 +68,6 @@ public class frme_wrk {
 	    } catch (IOException e) {  
 	        e.printStackTrace();  
 	    }  
-		this.logger = logger;
 	}
 	public WebDriver getdriver(){
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\zain\\git\\Selenium\\Sele_frme\\addl_req\\chromedriver.exe");
@@ -206,5 +201,35 @@ public class frme_wrk {
 		Select ss = new Select(isElementPresent(xpath));
 		ss.selectByVisibleText(value);
 	}
-	
+	public void framewrk_driver(String[] values){
+		
+		switch (values[0].toLowerCase()){
+		
+		case "gotourl":
+			this.gotourl(values[2]);
+			break;
+		case "mousehoveract":
+			this.mouseHoveract(values[1]);
+			break;
+		case "click":
+			this.click(values[1]);
+			break;
+		case "senddata":
+			this.senddata(values[1], values[2]);
+			break;
+		case "logger":
+			this.logger(values[2], (values[3].compareToIgnoreCase("y") == 0 || values[3].compareToIgnoreCase("yes")==0)?true:false);
+			break;
+		case "sleep":
+			this.sleep(Integer.parseInt(values[2]));
+			break;
+		case "closebrowser":
+			this.closebrowser();
+			break;
+		default:
+			this.logger("Error - no such command", false);
+			break;
+		}
+		
+	}
 }
