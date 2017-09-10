@@ -55,13 +55,11 @@ public class Excelfile {
 	    try {
 	        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 	        SwingUtilities.updateComponentTreeUI(fileChooser);
-	        //fileChooser.pack();
 	    }catch(Exception ex) {
 	        ex.printStackTrace();
 	    }
 		if (fileChooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
 		  file = fileChooser.getSelectedFile();
-		  // load from file
 		}
 		else
 			System.exit(0);
@@ -75,7 +73,6 @@ public class Excelfile {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	    //InputStream inp = new FileInputStream("workbook.xlsx");
 
 		try {
 			wb = WorkbookFactory.create(inp);

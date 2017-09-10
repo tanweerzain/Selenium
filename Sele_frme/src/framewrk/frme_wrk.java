@@ -96,11 +96,8 @@ public class frme_wrk {
 	public void mouseHover(String xpath) {
 		WebElement HoverElement = isElementPresent(xpath);
 			if (HoverElement != null) {
-				
 				String mouseHoverScript = "if(document.createEvent){var evObj = document.createEvent('MouseEvents');evObj.initEvent('mouseover', true, false); arguments[0].dispatchEvent(evObj);} else if(document.createEventObject) { arguments[0].fireEvent('onmouseover');}";
-				
 				((JavascriptExecutor) driver).executeScript(mouseHoverScript,HoverElement);
-				new Actions(driver).pause(1000000);
 			} else {
 				System.out.println("Element was not visible \n");
 			}
@@ -117,7 +114,6 @@ public class frme_wrk {
 					e.printStackTrace();
 				}	
 		        action.moveToElement(HoverElement).build().perform();
-				//action.pause(1000000);
 			} else {
 				System.out.println("Element was not visible \n");
 			}
@@ -125,18 +121,13 @@ public class frme_wrk {
 	
 	public WebElement isElementPresent(String xpath) {
 		boolean present = false;
-		//new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(ExpectedConditions.ElementExists((By.Id(login))));
 		Wait<WebDriver> wait = new FluentWait<WebDriver> (driver).withTimeout(60, TimeUnit.SECONDS).pollingEvery(2, TimeUnit.SECONDS).ignoring(NoSuchElementException.class,ElementNotVisibleException.class);
 		WebElement findElement = null;
 		try {
-//			WebElement myDynamicElement = (new WebDriverWait(driver, 10))
-//					  .until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
 			findElement = wait.until(new Function<WebDriver, WebElement>() {
 		        public WebElement apply(WebDriver webDriver) {
 		            return driver.findElement(By.xpath(xpath));}
 		    });
-			
-			//HoverElement = driver.findElement(By.xpath(xpath));
 			if (findElement.isDisplayed()
 					|| findElement.isEnabled())
 				present = true;
@@ -176,7 +167,6 @@ public class frme_wrk {
 	    if (takeshot)
 	    {
 	    	File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-	    	// Now you can do whatever you need to do with it, for example copy somewhere
 	    	try {
 	    		Files.copy(scrFile, new File("C:/Users/zain/desktop/test/" + "Step" + stepno + ".png"));
 	    	} catch (IOException e) {
@@ -190,7 +180,6 @@ public class frme_wrk {
 		WebElement testElement = isElementPresent(xpath);
 		if (testElement != null) {
 			testElement.sendKeys(data);
-			//
 		} else {
 			System.out.println("Element was not visible \n");
 
@@ -207,6 +196,9 @@ public class frme_wrk {
 		
 		case "gotourl":
 			this.gotourl(values[2]);
+			break;
+		case "boxselect":
+			this.boxselect(values[1], values[2]);
 			break;
 		case "mousehoveract":
 			this.mouseHoveract(values[1]);
